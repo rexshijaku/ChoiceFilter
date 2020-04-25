@@ -1,3 +1,5 @@
+![Image description](https://raw.githubusercontent.com/rexshijaku/ChoiceFilter/master/readme/choicefilter-logo.png)
+
 # ChoiceFilter
 
 ChoiceFilter is a pure Vanilla JavaScript library which creates chained dependency among select dropdown lists, checkboxes and radio buttons in a simple and an easy way. A common use case is if you select a continent from a dropdown then countries in another dropdown which relies on continents should be filtered based on the selected item, similarly countries dropdown may filter a group of checkboxes for instance a group of cities. In this case of ChoiceFilter, continents filter countries and countries filter cities, if continents dropdown is changed based on its new value the domino effect may occur and the whole chain gets affected.
@@ -45,7 +47,7 @@ require('@rexshijaku/choicefilter');
 
 ### Usage
 
-There are ten different examples (tutorials) on how to use this library on the *examples* folder above.
+There are ten different examples (tutorials) on how to use this library on the *demo* folder above.
 Here will be explained only one. In this example is presented a relationship between *two dropdowns*:
 ##### Javascript code:
 ##
@@ -100,11 +102,11 @@ Some important arguments are briefly explained below:
 | wrapperSelector |  CSS selector | empty string | Wrapper of a child choices. If child choices have wrappers, selector must be provided in this argument |
 | valueDelimiter |  string | "," | If your values are strings which can contain any character. You should think what value should be given as a delimiter. This values should not be present in any value of element which is used as either parent or child. |
 
-To understand these arguments  more easily, please check the examples folder provided in the repository.
+To understand these arguments  more easily, please check the demo folder provided in the repository.
 
 ### Support
 For general questions about choicefilter.js, tweet at @rexshijaku or write me an email on rexhepshijaku@gmail.com.
-To have a quick tutorial check the examples folder provided in the repository.
+To have a quick tutorial check the demo folder provided in the repository.
 
 
 ### Author
