@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Choice Filter Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!--   The only piece of code you need to include in your code -->  
+  <script type="text/javascript" src="../js/choicefilter.js"> </script>
+  <script type="text/javascript">
+  	window.onload = function() {
+
+  		var countries = document.getElementsByName("countries[]");
+      var cities = document.getElementById("cities");
+
+  		countries.filtchoices(cities,{
+  			data:{ 
+  				"de":[1,2],
+          "xk":[3,4],
+          "jp":[5,6],
+          "tr":[7,8]
+  			},
+  			independentChoices:["select-a-city"],
+  			autoSelectedChoicesAfterFilter:["select-a-city"],
+        presentOnEveryParent : 0
+  		});
+  	}
+  </script>
+</head>
+<body>
+
+<div class="container">
+  <h2>ChoiceFilter</h2>
+   <br>
+  <h4>Checkbox - Dropdwon | Dependency</h4>
+  <p>An example where <u>a group of checkbox buttons filter</u> the choices of <u>a select dropdown</u>.</p>
+   <br>
+  <h4>Example 1</h4>
+  <p> Dependent dropdown have a default value as <i>`Select a city`</i> we specify on the intialization that this value should never dissapear and gets selected when the sibling values are filtered.</p>
+  
+  <form>
+    <div class="form-group">
+      <br>
+      <div><b>Pick countries:</b></div>
+      <br>
+      <input type="checkbox" value="de" id="countr_de" name="countries[]">
+      <label for="countr_de"> Germany </label> <br>
+
+      <input type="checkbox" value="xk" id="countr_xk" name="countries[]">
+      <label for="countr_xk"> Kosovo </label> <br>
+
+      <input type="checkbox" value="jp" id="countr_jp" name="countries[]">
+      <label for="countr_jp"> Japan </label> <br>
+
+      <input type="checkbox" value="tr" id="countr_tr" name="countries[]">
+      <label for="countr_tr"> Turkey </label> <br>
+
+      <br>
+      <div><b>Choose the city you have visited:</b></div>
+      <br>
+
+      <select class="form-control" id="cities">
+        <option value="select-a-city">Select a city</option>
+        <option value="1">Hamburg</option>
+        <option value="2">Berlin</option>
+        <option value="3">Prishtina</option>
+        <option value="4">Prizren</option>
+        <option value="5">Tokyo</option>
+        <option value="6">Nagasaki</option>
+        <option value="7">Istanbul</option>
+        <option value="8">Ankara</option>
+        <option value="0">I didn't visit any of these</option>
+      </select>
+
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

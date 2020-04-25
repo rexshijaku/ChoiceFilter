@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Choice Filter Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!--   The only piece of code you need to include in your code -->  
+  <script type="text/javascript" src="../js/choicefilter.js"> </script>
+  <script type="text/javascript">
+  	window.onload = function() {
+
+      // Example 1, dependent items with wrappers 
+  		var continents = document.getElementById("continents");
+  		var countries = document.getElementsByName("countries");
+
+  		continents.filtchoices(countries,{
+  			data:{
+  				"europe":["de","xk","tr"],
+  				"asia":["jp","in","tr"]
+  			},
+        wrapperSelector : ".wrapperClass",
+        showAllChildChoicesWhen: "all" 
+  		});
+      // end of Example 1
+
+      //-----------------------------------------------------------------------------
+
+
+     // Example 2, dependent items without wrappers 
+     var continents2 = document.getElementById("continents2");
+     var countries2 = document.getElementsByName("countries2");
+        
+     continents2.filtchoices(countries2,{
+      data:{
+        "europe":["de","xk","tr"],
+        "asia":["jp","tr"]
+      },
+      showAllChildChoicesWhen: "all" 
+     });
+     //end of Example 2
+
+  	}
+  </script>
+</head>
+<body>
+
+<div class="container">
+  <h2>ChoiceFilter</h2>
+  <br>
+  <h4>Dropdown - Radio | Dependency</h4>
+  <p>An example where a <u>select dropdown filters</u> the choices of <u>a group of radio buttons.</u></p>
+  <br>
+  <h4>Example 1</h4>
+  <p> In this example dependent choices <u>have their own</u> wrappers. Note that div elements with class 'wrapperClass' wrapp the choices which will be filtered. Each filtered choice will be unchecked during filter.</p>
+  <form>
+    <div class="form-group">
+      <label for="continents">Select continent to filter countries which depend on it:</label>
+      <select class="form-control" id="continents">
+        <option value="all">All Continents</option>
+        <option value="europe">Europe</option>
+        <option value="asia">Asia</option>
+      </select>
+      <br>
+     
+        <div><b>Countries based on selected continent will apear below:</b></div>
+        <br>
+        <div class="wrapperClass">
+          <input type="radio" value="de" id="countr_de" name="countries">
+          <label for="countr_de"> Germany </label>
+        </div>
+         <div class="wrapperClass">
+          <input type="radio" value="xk" id="countr_xk" name="countries">
+          <label for="countr_xk"> Kosovo </label>
+         </div>
+         <div class="wrapperClass">
+          <input type="radio" value="jp" id="countr_jp" name="countries">
+          <label for="countr_jp"> Japan </label>
+         </div>
+        
+        <div class="wrapperClass">
+          <input type="radio" value="tr" id="countr_tr" name="countries">
+          <label for="countr_tr"> Turkey </label>
+        </div>
+
+    </div>
+  </form>
+
+  <br>
+  <br>
+  <br>
+  <h4>Example 2</h4>
+  <p> In this example dependent choices <u>have <b>not</b> their own</u> wrappers. In this case <i>ChoiceFilter.js</i> is only capable to find out their corresponding labels, this is done by using the <i>id</i> attribute of the choices and <i>for</i> attribute of labels. Each filtered choice will be unchecked during filter.</p>
+  <form>
+    <div class="form-group">
+      <label for="continents2">Select continent to filter countries which depend on it:</label>
+      <select class="form-control" id="continents2">
+        <option value="all">All Continents</option>
+        <option value="europe">Europe</option>
+        <option value="asia">Asia</option>
+      </select>
+      <br>
+      
+      <div><b>Countries based on selected continent will apear below:</b></div>
+        <br>
+        <input type="radio" value="de" id="countriess2_de" name="countries2">
+        <label for="countriess2_de"> Germany </label>
+        <input type="radio" value="xk" id="countriess2_xk" name="countries2">
+        <label for="countriess2_xk"> Kosovo </label>
+        <input type="radio" value="jp" id="countriess2_jp" name="countries2">
+        <label for="countriess2_jp"> Japan </label>
+        <input type="radio" value="tr" id="countriess2_tr" name="countries2">
+        <label for="countriess2_tr"> Turkey </label>
+    </div>
+
+  </form>
+</div>
+
+</body>
+</html>

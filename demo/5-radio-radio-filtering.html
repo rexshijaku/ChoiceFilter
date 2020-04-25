@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Choice Filter Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!--   The only piece of code you need to include in your code -->  
+  <script type="text/javascript" src="../js/choicefilter.js"> </script>
+  <script type="text/javascript">
+  	window.onload = function() {
+
+       // Example 1, dependent items with wrappers 
+  		var countries = document.getElementsByName("countries");
+      var cities = document.getElementsByName("cities");
+      countries.filtchoices(cities,{
+
+              data:{
+                "de":[1,2,3],
+                "xk":[4,5],
+                "jp":[6,7],
+                "tr":[8,9],
+              },
+              wrapperSelector :".wrapperClass",
+              presentOnEveryParent: "idk"
+      });
+      // end of Example 1
+
+      // Example 2, dependent items without wrappers 
+      var countries2 = document.getElementsByName("countries2");
+      var cities2 = document.getElementsByName("cities2");
+      countries2.filtchoices(cities2,{
+
+            data:{
+              "de":[1,2,3],
+              "xk":[4,5],
+              "jp":[6,7],
+              "tr":[8,9],
+            },
+            presentOnEveryParent: [ "idk" ]
+      });
+      //end of Example 2
+      
+    }
+  </script>
+  <!-- end of the code you need   --> 
+
+</head>
+<body>
+
+<div class="container">
+   <h2>ChoiceFilter</h2>
+   <br>
+   <h4>Radio - Radio | Dependency</h4>
+      <p>An example where <u>a group of radio buttons filter</u> the choices of another <u>group of radio buttons</u>.</p>
+   <br>
+   <h4>Example 1</h4>
+   <p> In this example dependent choices <u>have their own</u> wrappers. Note that div elements with class 'wrapperClass' wrapp the choices which will be filtered. Each filtered choice will be unchecked during filter.</p>
+
+   <form>
+    <div class="form-group">
+        <div> <b> Choose a country: </b> </div>
+        <br>
+
+        <input type="radio" value="de" id="countr_de" name="countries" checked>
+        <label for="countr_de"> Germany </label>   <br>
+  
+        <input type="radio" value="xk" id="countr_xk" name="countries">
+        <label for="countr_xk"> Kosovo </label> <br>
+         
+
+        <input type="radio" value="jp" id="countr_jp" name="countries">
+        <label for="countr_jp"> Japan </label> <br>
+
+        <input type="radio" value="tr" id="countr_tr" name="countries">
+        <label for="countr_tr"> Turkey </label> <br>
+
+        <br>
+        <div> <b> Guess the capital city?</b> </div>
+        <br>
+
+        <div class="wrapperClass">
+          <input type="radio" value="1" name="cities"> Hamburg
+        </div>
+        <div class="wrapperClass">
+           <input type="radio" value="2" name="cities"> Berlin
+        </div>
+         <div class="wrapperClass">
+          <input type="radio" value="3" name="cities"> Munich
+        </div>
+
+        <div class="wrapperClass">
+          <input type="radio" value="4" name="cities"> Prishtina
+        </div>
+         <div class="wrapperClass">
+           <input type="radio" value="5" name="cities"> Prizren
+        </div>
+        
+        <div class="wrapperClass">
+          <input type="radio" value="6" name="cities"> Tokyo
+        </div>
+         <div class="wrapperClass">
+           <input type="radio" value="7" name="cities"> Nagasaki
+        </div>
+        
+        <div class="wrapperClass">
+          <input type="radio" value="8" name="cities"> Istanbul
+        </div>
+         <div class="wrapperClass">
+           <input type="radio" value="9" name="cities"> Ankara
+        </div>
+
+         <div class="wrapperClass">
+           <input type="radio" value="idk" name="cities"> I dont't know
+        </div>
+    </div>
+  </form>
+
+   <br>
+   <h4>Example 2</h4>
+   <p> In this example dependent choices <u>have <b>not</b> their own</u> wrappers. In this case <i>ChoiceFilter.js</i> is only capable to find out their corresponding labels, this is done by using the <i>id</i> attribute of the choices and <i>for</i> attribute of labels. Each filtered choice will be unchecked during filter.</p>
+
+   <form>
+    <div class="form-group">
+        <div> <b> Choose a country: </b> </div>
+        <br>
+        
+        <input type="radio" value="de" id="countr_de2" name="countries2" checked>
+        <label for="countr_de2"> Germany </label>   <br>
+  
+        <input type="radio" value="xk" id="countr_xk2" name="countries2">
+        <label for="countr_xk2"> Kosovo </label> <br>
+         
+
+        <input type="radio" value="jp" id="countr_jp2" name="countries2">
+        <label for="countr_jp2"> Japan </label> <br>
+
+        <input type="radio" value="tr" id="countr_tr2" name="countries2">
+        <label for="countr_tr2"> Turkey </label> <br>
+
+        <br>
+        <div> <b> Guess the capital city?</b> </div>
+        <br>
+
+        <input type="radio" value="1" name="cities2" id="city_1">
+        <label for="city_1"> Hamburg </label>
+         
+        <input type="radio" value="2" name="cities2" id="city_2"> 
+        <label for="city_2"> Berlin </label>
+
+        <input type="radio" value="3" name="cities2" id="city_3"> 
+        <label for="city_3"> Munich </label>
+
+        <input type="radio" value="4" name="cities2" id="city_4"> 
+        <label for="city_4"> Prishtina </label>
+
+        <input type="radio" value="5" name="cities2" id="city_5"> 
+        <label for="city_5"> Prizren </label>
+      
+        <input type="radio" value="6" name="cities2" id="city_6"> 
+        <label for="city_6"> Tokyo </label>
+
+        <input type="radio" value="7" name="cities2" id="city_7">
+        <label for="city_7"> Istanbul </label>
+      
+        <input type="radio" value="8" name="cities2" id="city_8">
+        <label for="city_8"> Ankara </label>
+
+        <input type="radio" value="9" name="cities2" id="city_9"> 
+        <label for="city_9"> Izmir </label>
+
+        <input type="radio" value="idk" name="cities2" id="idk"> 
+        <label for="idk"> I don't know </label>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

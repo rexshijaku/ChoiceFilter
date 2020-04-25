@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+  <title>Choice Filter Example (Select-Select)</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!--   The only piece of code you need to include in your code -->  
+  <script type="text/javascript" src="../js/choicefilter.js"> </script>
+  <script type="text/javascript">
+  	window.onload = function() {
+
+      //select elements
+  		var continents = document.getElementById("continents");
+  		var countries = document.getElementById("countries");
+
+      //create a connection between them 
+  		continents.filtchoices(countries,{
+  			data:{
+  				"europe":["de","xk","tr"],
+  				"asia":["jp","tr"]
+  			},
+  			independentChoices : "select-a-country",
+  			autoSelectedChoicesAfterFilter: "select-a-country",
+        showAllChildChoicesWhen: "all"
+  		}); 
+
+  		var cities = document.getElementById("cities");
+  		countries.filtchoices(cities,{
+
+  			data:{
+  				"de":["br","hm"],
+  				"xk":["pr","pz"],
+  				"jp":["tk","ng"],
+          "tr":["ist","ank"]
+  			},
+  			independentChoices: ["select-a-city"],
+  			autoSelectedChoicesAfterFilter: ["select-a-city"]
+  		});
+  	}
+  </script>
+  <!-- end of the code you need   -->  
+
+</head>
+<body>
+
+<div class="container">
+  <h2>ChoiceFilter</h2>
+  <br>
+  <h4>Dropdown - Dropdwon | Dependency</h4>
+  <p>An example where a <u>select dropdown filters</u> the choices of another <u>select dropdown</u>.</p>
+  <br>
+  <h4>Example 1</h4>
+  <p> Info: In this example Countries depend on Continents, and Cities depend to Countries dropdown, so there is a chain. If Country changes then <u>only Cities</u> will be filtered  but if Continent changes <u>all chain</u> will be affected.</p>
+  <form>
+    <div class="form-group">
+      <select class="form-control" id="continents">
+        <option value="select-a-continent">Select a continent</option>
+         <option value="all">All</option>
+        <option value="europe">Europe</option>
+        <option value="asia">Asia</option>
+      </select>
+
+      <br>
+
+      <select class="form-control" id="countries">
+        <option value="select-a-country">Select a country</option>
+        <option value="de">Germany</option>
+        <option value="xk">Kosovo</option>
+       	<option value="jp">Japan</option>
+        <option value="tr">Turkey</option>
+      </select>
+
+      <br>
+
+      <select class="form-control" id="cities">
+      	<option value="select-a-city">Select a city</option>
+        <option value="br">Berlin</option>
+        <option value="hm">Hamburg</option>
+
+        <option value="pz">Prizren</option>
+        <option value="pr">Prishtina</option>
+
+         <option value="tk">Tokyo</option>
+        <option value="ng">Nagasaki</option>
+
+        <option value="ist">Istanbul</option>
+        <option value="ank">Ankara</option>
+      </select>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
