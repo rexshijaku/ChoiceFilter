@@ -1,4 +1,10 @@
-![Image description](https://raw.githubusercontent.com/rexshijaku/ChoiceFilter/master/readme/choicefilter-logo.png)
+<p float="left" style="margin-left:-80px">
+  <img src="https://raw.githubusercontent.com/rexshijaku/ChoiceFilter/master/readme/choicefilter-logo.png" width="53%">
+  <a href="https://www.youtube.com/watch?v=C1fbcX93428" target="_blank">
+  <img src="https://raw.githubusercontent.com/rexshijaku/ChoiceFilter/master/readme/choicefilter.gif" width="45%" /> 
+  </a>
+</p>
+
 
 # ChoiceFilter
 
@@ -28,6 +34,9 @@ Supports following relationships:
 You can build dependency (relationships) like:
   - Dropdown to Checkbox to Radio to Dropdown
   - Radio to Checkbox to Dropdwon
+
+### Demo
+Check a combined-example demo  <a href="https://www.youtube.com/watch?v=C1fbcX93428" target="_blank">here</a>.
 
 ## Get Started
 ##### Install by manual download: 
