@@ -1,7 +1,7 @@
 <p float="left" style="margin-left:-80px">
-  <img src="https://raw.githubusercontent.com/rexshijaku/ChoiceFilter/master/readme/choicfilterjs-logo.png" width="53%">
+  <img src="https://raw.githubusercontent.com/rexshijaku/ChoiceFilter/master/readme/choicfilterjs-logo.png" width="44%">
   <a href="https://www.youtube.com/watch?v=C1fbcX93428" target="_blank">
-  <img src="https://raw.githubusercontent.com/rexshijaku/ChoiceFilter/master/readme/choicefilterjs.gif" width="35%" height="400"/> 
+  <img src="https://raw.githubusercontent.com/rexshijaku/ChoiceFilter/master/readme/choicefilterjs.gif" width="38%" height="420"/> 
   </a>
 </p>
 
