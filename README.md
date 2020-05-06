@@ -1,7 +1,7 @@
 <p float="left" style="margin-left:-80px">
   <img src="https://raw.githubusercontent.com/rexshijaku/ChoiceFilter/master/readme/choicfilterjs-logo.png" width="44%">
   <a href="https://www.youtube.com/watch?v=C1fbcX93428" target="_blank">
-  <img src="https://raw.githubusercontent.com/rexshijaku/ChoiceFilter/master/readme/choicefilterjs.gif" width="38%" height="420"/> 
+  <img src="https://raw.githubusercontent.com/rexshijaku/ChoiceFilter/master/readme/choicefilterjs.gif" width="45%" height="420"/> 
   </a>
 </p>
 
@@ -40,7 +40,8 @@ Check a combined-example demo  <a href="https://www.youtube.com/watch?v=C1fbcX93
 
 ## Get Started
 ##### Install by manual download: 
-Donwload choice-filter.js which is located in js folder and include it as follows :
+Donwload   <a href="https://github.com/rexshijaku/ChoiceFilter/blob/master/js/choicefilter.js" >
+ choice-filter.js </a> which is located in  <a href="https://github.com/rexshijaku/ChoiceFilter/blob/master/js"> js </a> folder and include it as follows :
 ```html
  <script type="text/javascript" src="choicefilter.js"> </script>
 ```
@@ -56,7 +57,7 @@ require('@rexshijaku/choicefilter');
 
 ### Usage
 
-There are ten different examples (tutorials) on how to use this library on the *demo* folder above.
+There are ten different examples (tutorials) on how to use this library on the <a href="https://github.com/rexshijaku/ChoiceFilter/tree/master/demo">demo</a> folder.
 Here will be explained only one. In this example is presented a relationship between *two dropdowns*:
 ##### Javascript code:
 ##
