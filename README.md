@@ -40,7 +40,7 @@ Check a combined-example demo  <a href="https://www.youtube.com/watch?v=C1fbcX93
 
 ## Get Started
 ##### Install by manual download: 
-Donwload   <a href="https://github.com/rexshijaku/ChoiceFilter/blob/master/js/choicefilter.js" >
+Download   <a href="https://github.com/rexshijaku/ChoiceFilter/blob/master/js/choicefilter.js" >
  choice-filter.js </a> which is located in  <a href="https://github.com/rexshijaku/ChoiceFilter/blob/master/js"> js </a> folder and include it as follows :
 ```html
  <script type="text/javascript" src="choicefilter.js"> </script>
