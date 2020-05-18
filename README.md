@@ -62,21 +62,21 @@ Here will be explained only one. In this example is presented a relationship bet
 ##### Javascript code:
 ##
 ```javascript
-        //select elements
-  		var continents = document.getElementById("continents"); // this will be parent elem
-  		var countries = document.getElementById("countries"); // this will be child (dependent)
+    //select elements
+    var continents = document.getElementById("continents"); // this will be parent elem
+    var countries = document.getElementById("countries"); // this will be child (dependent)
 
-       //create a connection between them 
-  		continents.filtchoices(countries, 
-                  {
-                    data:{
-                          "europe":["de","xk","tr"],
-                          "asia":["jp","tr"]
-                          },
-                      independentChoices : "select-a-country",
-                      autoSelectedChoicesAfterFilter: "select-a-country",
-                      showAllChildChoicesWhen: "all" 
-      	          }); 
+     //create a connection between them 
+    continents.filtchoices(countries, 
+      {
+        data:{
+              "europe":["de","xk","tr"],
+              "asia":["jp","tr"]
+              },
+          independentChoices : "select-a-country",
+          autoSelectedChoicesAfterFilter: "select-a-country",
+          showAllChildChoicesWhen: "all" 
+      }); 
 ```
 ##### Html code: 
 ##
