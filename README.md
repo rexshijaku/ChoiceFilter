@@ -36,7 +36,8 @@ You can build dependency (relationships) like:
   - Radio to Checkbox to Dropdwon
 
 ### Demo
-Check a combined-example demo  <a href="https://www.youtube.com/watch?v=C1fbcX93428" target="_blank">here</a>.
+<a href="https://rexshijaku.github.io/ChoiceFilter/">Online demo</a> is available!<br>
+<a href="https://www.youtube.com/watch?v=C1fbcX93428" target="_blank">Video demo</a> is also available.
 
 ## Get Started
 ##### Install by manual download: 
