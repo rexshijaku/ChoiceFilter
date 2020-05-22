@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ChoiceFilter</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!--   The only piece of code you need to include in your code -->
+    <script type="text/javascript" src="../js/choicefilter.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+
+            //select elements
+            var continents = document.getElementById("continents");
+            var countries = document.getElementById("countries");
+
+            //create a connection between them
+            continents.filtchoices(countries,
+                {
+                    data: {
+                        "europe": ["de", "xk", "tr"],
+                        "asia": ["jp", "tr"]
+                    },
+                    independentChoices: "select-a-country",
+                    autoSelectedChoicesAfterFilter: "select-a-country",
+                    showAllChildChoicesWhen: "all"
+                });
+
+            var cities = document.getElementsByName("cities");
+            countries.filtchoices(cities,
+                {
+                    data: {
+                        "de": [1, 2],
+                        "xk": [3, 4],
+                        "jp": [5, 6],
+                        "tr": [7, 8]
+                    },
+                    ignoreParentValues: ["select-a-country"],
+                    wrapperSelector: ".wrapperClass",
+                    parentControlsVisibilityOf: ".cities_visited_title",
+                });
+
+            var squares = document.getElementsByName("squares");
+            cities.filtchoices(squares, {
+                data: {
+                    1: [1, 2],
+                    2: [3, 4],
+                    3: [5, 6],
+                    4: [7, 8],
+                    5: [9, 10],
+                    6: [11, 12],
+                    7: [13, 14],
+                    8: [15, 16],
+                },
+                wrapperSelector: ".wrapperClass",
+                parentControlsVisibilityOf: ".squares_question"
+            });
+
+            var fav_squares = document.getElementsByName("fav_squares");
+            squares.filtchoices(fav_squares, {
+                data: {
+                    1: [1],
+                    2: [2],
+                    3: [3],
+                    4: [4],
+                    5: [5],
+                    6: [6],
+                    7: [7],
+                    8: [8],
+                    9: [9],
+                    10: [10],
+                    11: [11],
+                    12: [12],
+                    13: [13],
+                    14: [14],
+                    15: [15],
+                    16: [16],
+                },
+                wrapperSelector: ".wrapperClass",
+                parentControlsVisibilityOf: ".fav_square_question"
+            });
+
+            var rating = document.getElementById("rating");
+            fav_squares.filtchoices(rating, {
+                data: {},
+                independentChoices: ["select-a-rating"],
+                autoSelectedChoicesAfterFilter: "select-a-rating",
+                presentOnEveryParent: [1, 2, 3, 4, 5],
+                parentControlsVisibilityOf: ".rating_dropdown"
+            });
+        }
+    </script>
+    <!-- end of the code you need   -->
+
+</head>
+<body>
+
+<div class="container">
+    <h1 class="fnt-bld">ChoiceFilter</h1>
+    <p>ChoiceFilter is a pure Vanilla JavaScript library which creates chained dependency among select dropdown lists,
+        checkboxes and radio buttons in a simple and an easy way. A common use case is if you select a continent from a
+        dropdown then countries in another dropdown which relies on continents should be filtered based on the selected
+        item, similarly countries dropdown may filter a group of checkboxes for instance a group of cities. In this case
+        of ChoiceFilter, continents filter countries and countries filter cities, if continents dropdown is changed
+        based on its new value the domino effect may occur and the whole chain gets affected.
+    </p>
+    <p>
+    <h5 class="fnt-bld"> Main Features </h5>
+
+    <ul>
+        <li>Pure Vanilla Javascript</li>
+        <li>No Dependencies</li>
+        <li>Simple & Easy to use</li>
+        <li>Single file</li>
+        <li>Creates chained dependency among n elements</li>
+        <li>Creates chained dependency among different element types e.g dropdown, checkbox, radio</li>
+        <li>Creates and handles Domino effect</li>
+    </ul>
+
+    <h5 class="fnt-bld">Supports following relationships:</h5>
+
+    <ul>
+        <li>Dropdown to Dropdown</li>
+        <li>Dropdown to Checkbox</li>
+        <li> Dropdown to Radio</li>
+        <li>Checkbox to Checkbox</li>
+        <li>Checkbox to Dropdown</li>
+        <li>Checkbox to Radio</li>
+        <li>Radio to Radio</li>
+        <li> Radio to Checkbox</li>
+        <li>Radio to Dropdown</li>
+    </ul>
+
+    <h5 class="fnt-bld">
+        You can build dependency (relationships) like:
+    </h5>
+    <ul>
+        <li>Dropdown to Checkbox to Radio to Dropdown</li>
+        <li>Radio to Checkbox to Dropdwon</li>
+    </ul>
+    <br>
+    <h5>Setup and more <a href="https://github.com/rexshijaku/ChoiceFilter" target="_blank"><u>here.</u></a></h5>
+    </p>
+    <br>
+    <h4 class="fnt-bld">A Combined Example</h4>
+    <p>A combined example where different element types filter each other. In this case is presented a relationship
+        between: Selects, Checkboxes and Radio Buttons.</p>
+    <br>
+    <h4 class="fnt-bld">Example 1</h4>
+    <p> Info: In this example Countries depend on Continents, and Cities depend to Countries dropdown, so there is a
+        chain. If Country changes then <u>only Cities</u> will be filtered but if Continent changes <u>all chain</u>
+        will be affected.</p>
+    <form>
+        <div class="form-group">
+            <select class="form-control" id="continents">
+                <option value="">Select a continent you've been</option>
+                <option value="all">Europe and Asia</option>
+                <option value="europe">Europe</option>
+                <option value="asia">Asia</option>
+            </select>
+            <br>
+
+            <select class="form-control" id="countries">
+                <option value="select-a-country">Select a country you've been</option>
+                <option value="de">Germany</option>
+                <option value="xk">Kosovo</option>
+                <option value="jp">Japan</option>
+                <option value="tr">Turkey</option>
+            </select>
+
+            <br>
+            <div class="cities_visited_title"><b>Which cities you visited: </b></div>
+            <br>
+
+            <div class="wrapperClass">
+                <input type="checkbox" value="1" name="cities"> Hamburg
+            </div>
+            <div class="wrapperClass">
+                <input type="checkbox" value="2" name="cities"> Berlin
+            </div>
+
+            <div class="wrapperClass">
+                <input type="checkbox" value="3" name="cities"> Prishtina
+            </div>
+            <div class="wrapperClass">
+                <input type="checkbox" value="4" name="cities"> Prizren
+            </div>
+
+            <div class="wrapperClass">
+                <input type="checkbox" value="5" name="cities"> Tokyo
+            </div>
+            <div class="wrapperClass">
+                <input type="checkbox" value="6" name="cities"> Nagasaki
+            </div>
+
+            <div class="wrapperClass">
+                <input type="checkbox" value="7" name="cities"> Istanbul
+            </div>
+            <div class="wrapperClass">
+                <input type="checkbox" value="8" name="cities"> Ankara
+            </div>
+        </div>
+
+        <br>
+        <div class="squares_question"><b>In which squares did you go:</b></div>
+        <br>
+
+        <div class="wrapperClass">
+            <input type="checkbox" value="1" name="squares"> Hamburg Square 1
+        </div>
+        <div class="wrapperClass">
+            <input type="checkbox" value="2" name="squares"> Hamburg Square 2
+        </div>
+
+        <div class="wrapperClass">
+            <input type="checkbox" value="3" name="squares"> Berlin Square 1
+        </div>
+        <div class="wrapperClass">
+            <input type="checkbox" value="4" name="squares"> Berlin Square 2
+        </div>
+
+        <div class="wrapperClass">
+            <input type="checkbox" value="5" name="squares"> Prishtina Square 1
+        </div>
+        <div class="wrapperClass">
+            <input type="checkbox" value="6" name="squares"> Prishtina Square 2
+        </div>
+
+        <div class="wrapperClass">
+            <input type="checkbox" value="7" name="squares"> Prizren Square 1
+        </div>
+        <div class="wrapperClass">
+            <input type="checkbox" value="8" name="squares"> Prizren Square 2
+        </div>
+
+        <div class="wrapperClass">
+            <input type="checkbox" value="9" name="squares"> Tokyo Square 1
+        </div>
+        <div class="wrapperClass">
+            <input type="checkbox" value="10" name="squares"> Tokyo Square 2
+        </div>
+
+        <div class="wrapperClass">
+            <input type="checkbox" value="11" name="squares"> Nagasaki Square 1
+        </div>
+        <div class="wrapperClass">
+            <input type="checkbox" value="12" name="squares"> Nagasaki Square 2
+        </div>
+
+        <div class="wrapperClass">
+            <input type="checkbox" value="13" name="squares"> Istanbul Square 1
+        </div>
+        <div class="wrapperClass">
+            <input type="checkbox" value="14" name="squares"> Istanbul Square 2
+        </div>
+
+        <div class="wrapperClass">
+            <input type="checkbox" value="15" name="squares"> Ankara Square 1
+        </div>
+        <div class="wrapperClass">
+            <input type="checkbox" value="16" name="squares"> Ankara Square 2
+        </div>
+
+        <br>
+        <div class="fav_square_question"><b>Favourite square?</b></div>
+        <br>
+
+        <div class="wrapperClass">
+            <input type="radio" value="1" name="fav_squares"> Hamburg Square 1
+        </div>
+        <div class="wrapperClass">
+            <input type="radio" value="2" name="fav_squares"> Hamburg Square 2
+        </div>
+
+        <div class="wrapperClass">
+            <input type="radio" value="3" name="fav_squares"> Berlin Square 1
+        </div>
+        <div class="wrapperClass">
+            <input type="radio" value="4" name="fav_squares"> Berlin Square 2
+        </div>
+
+        <div class="wrapperClass">
+            <input type="radio" value="5" name="fav_squares"> Prishtina Square 1
+        </div>
+        <div class="wrapperClass">
+            <input type="radio" value="6" name="fav_squares"> Prishtina Square 2
+        </div>
+
+        <div class="wrapperClass">
+            <input type="radio" value="7" name="fav_squares"> Prizren Square 1
+        </div>
+        <div class="wrapperClass">
+            <input type="radio" value="8" name="fav_squares"> Prizren Square 2
+        </div>
+
+        <div class="wrapperClass">
+            <input type="radio" value="9" name="fav_squares"> Tokyo Square 1
+        </div>
+        <div class="wrapperClass">
+            <input type="radio" value="10" name="fav_squares"> Tokyo Square 2
+        </div>
+
+        <div class="wrapperClass">
+            <input type="radio" value="11" name="fav_squares"> Nagasaki Square 1
+        </div>
+        <div class="wrapperClass">
+            <input type="radio" value="12" name="fav_squares"> Nagasaki Square 2
+        </div>
+
+        <div class="wrapperClass">
+            <input type="radio" value="13" name="fav_squares"> Istanbul Square 1
+        </div>
+        <div class="wrapperClass">
+            <input type="radio" value="14" name="fav_squares"> Istanbul Square 2
+        </div>
+
+        <div class="wrapperClass">
+            <input type="radio" value="15" name="fav_squares"> Ankara Square 1
+        </div>
+        <div class="wrapperClass">
+            <input type="radio" value="16" name="fav_squares"> Ankara Square 2
+        </div>
+
+        <br>
+
+        <select class="form-control rating_dropdown" id="rating">
+            <option value="select-a-rating" selected>Rate</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+</form>
+</div>
+</body>
+<style type="text/css">
+    .fnt-bld {
+        font-weight: bold;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+    }
+
+    p {
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    ul {
+        display: block;
+        list-style-type: disc;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
+    }
+
+    li {
+        display: list-item;
+        text-align: -webkit-match-parent;
+
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    body {
+        padding-bottom: 25px;
+    }
+</style>
+</html>
