@@ -10,6 +10,10 @@
 
 ChoiceFilter is a pure Vanilla JavaScript library which creates chained dependency among select dropdown lists, checkboxes and radio buttons in a simple and an easy way. A common use case is if you select a continent from a dropdown then countries in another dropdown which relies on continents should be filtered based on the selected item, similarly countries dropdown may filter a group of checkboxes for instance a group of cities. In this case of ChoiceFilter, continents filter countries and countries filter cities, if continents dropdown is changed based on its new value the domino effect may occur and the whole chain gets affected.
 
+## Support
+
+<a href="https://www.buymeacoffee.com/rexshijaku" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="50" width="180"></a>
+
 #### Main Features
 
   - Pure Vanilla Javascript
